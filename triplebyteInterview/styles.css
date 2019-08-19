@@ -1,0 +1,29 @@
+.column {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 12.5px;
+}
+
+#App {
+  display: flex;
+  align-items: stretch;
+  margin: 0px 5px;
+}
+.column-title-1 {
+  height: 30px;
+}
+.column-title-1 {
+  height: 30px;
+}
+.column-title-1 {
+  height: 30px;
+}
+.column-title-1 {
+  height: 30px;
+}
+
+.card {
+  display: flex;
+}

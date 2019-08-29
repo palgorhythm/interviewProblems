@@ -19,7 +19,7 @@ class App extends React.Component {
     this.setState(JSON.parse(localStorage.getItem('state')));
   }
 
-  //hoq sdo broswees cache requests
+  // hoq sdo broswees cache requests
   // cookies vs local localStorage
   // http2 vs. http
   // https more secure???

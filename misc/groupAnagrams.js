@@ -1,20 +1,39 @@
+// const groupAnagrams = strs => { // O(n^3) solution
+//   const result = [];
+//   strs.forEach(str => {
+//     // pass thru every string
+//     let foundBucket = false;
+//     for (let i = 0; i < result.length; i++) {
+//       //look through all arrays of strings
+//       if (areAnagrams(str, result[i][0])) {
+//         result[i].push(str);
+//         foundBucket = true;
+//       }
+//     }
+//     if (!foundBucket) {
+//       result.push([str]);
+//     }
+//   });
+//   return result;
+// };
+
 const groupAnagrams = strs => {
-  const result = [];
+  //O(n^2) solution. O(n) space
+  // transform each str into a sorted version so that anagrams map to the same sorted version.
+  const result = {};
   strs.forEach(str => {
     // pass thru every string
-    let foundBucket = false;
-    for (let i = 0; i < result.length; i++) {
-      //look through all arrays of strings
-      if (areAnagrams(str, result[i][0])) {
-        result[i].push(str);
-        foundBucket = true;
-      }
-    }
-    if (!foundBucket) {
-      result.push([str]);
+    const sortedStr = str
+      .split('')
+      .sort()
+      .join('');
+    if (result.hasOwnProperty(sortedStr)) {
+      result[sortedStr].push(str);
+    } else {
+      result[sortedStr] = [str];
     }
   });
-  return result;
+  return Object.values(result);
 };
 
 const areAnagrams = (a, b) => {
@@ -66,3 +85,11 @@ tests.forEach(test => {
     test.expected
   );
 });
+
+const a = 'hello';
+console.log(
+  a
+    .split('')
+    .sort()
+    .join('')
+);
